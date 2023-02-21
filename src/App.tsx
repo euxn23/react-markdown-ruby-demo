@@ -1,6 +1,12 @@
 import { useState } from 'react'
+import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 import reactLogo from './assets/react.svg'
 import './App.css'
+
+const Bold = ({ children }) => (
+  <bold>{children}</bold>
+)
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,7 +21,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <ReactMarkdown children={`## <ruby>Vite<rp>(</rp><rt>ヴィート</rt><rp>)</rp> + React`} rehypePlugins={[rehypeRaw]} />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
